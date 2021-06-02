@@ -1,6 +1,7 @@
 const path = require("path");
 const mongoose = require("mongoose");
 const { config } = require("dotenv");
+const cors = require("cors");
 const customers = require("./persons-router");
 
 console.log(process.env.NODE_ENV);
@@ -25,6 +26,7 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.use(cors());
 app.use(express.json());
 app.use("/pessoas", customers);
 
